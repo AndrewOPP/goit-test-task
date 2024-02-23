@@ -9,7 +9,6 @@ const Layout = ({ children }) => {
     <div>
       <Header>Здесь может быть ваш заголовок</Header>
       <main>{children}</main>
-      <footer>Здесь может быть ваш футер</footer>
     </div>
   );
 };

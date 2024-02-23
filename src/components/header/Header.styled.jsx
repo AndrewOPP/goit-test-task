@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const HeaderWrapper = styled.div({
@@ -11,6 +12,7 @@ export const HeaderWrapper = styled.div({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+  boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
 });
 
 export const NavList = styled.ul({
@@ -30,11 +32,16 @@ export const MainTitle = styled.p({
   letterSpacing: '2px',
   lineHeight: '30px',
 });
-export const NavItem = styled.li({});
+export const StyledNavLink = styled(NavLink)`
+  color: #fff;
+  &.active {
+    color: #222; /* Изменяем цвет активной ссылки */
+  }
+`;
 
 export const NavItemText = styled.p({
   margin: 0,
-  color: '#fff',
+
   fontSize: '16px',
   fontWeight: 'bold',
   textTransform: 'uppercase',

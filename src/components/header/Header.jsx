@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
 import {
   HeaderWrapper,
   MainTitle,
-  NavItem,
   NavItemText,
   NavList,
+  StyledNavLink,
 } from './Header.styled';
 
 export const Header = () => {
@@ -14,21 +14,21 @@ export const Header = () => {
       <MainTitle>UKRCAR</MainTitle>
       <nav>
         <NavList>
-          <NavItem>
-            <Link style={{ textDecoration: 'none' }} to="/">
+          <li>
+            <StyledNavLink style={{ textDecoration: 'none' }} to="/">
               <NavItemText>About</NavItemText>
-            </Link>
-          </NavItem>
-          <NavItem>
-            <Link style={{ textDecoration: 'none' }} to="/catalog">
+            </StyledNavLink>
+          </li>
+          <li>
+            <StyledNavLink style={{ textDecoration: 'none' }} to="/catalog">
               <NavItemText>Catalog</NavItemText>
-            </Link>
-          </NavItem>
-          <NavItem>
-            <Link style={{ textDecoration: 'none' }} to="/favorites">
+            </StyledNavLink>
+          </li>
+          <li>
+            <StyledNavLink style={{ textDecoration: 'none' }} to="/favorites">
               <NavItemText>Favorites</NavItemText>
-            </Link>
-          </NavItem>
+            </StyledNavLink>
+          </li>
         </NavList>
       </nav>
     </HeaderWrapper>
