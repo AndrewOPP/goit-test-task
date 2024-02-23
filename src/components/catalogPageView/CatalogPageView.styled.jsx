@@ -4,12 +4,21 @@ import { UilHeart } from '@iconscout/react-unicons';
 export const CatalogWrapper = styled.div`
   margin-left: 168px;
   margin-right: 168px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  @media (min-width: 1768px) {
+    margin-left: 268px;
+    margin-right: 268px;
+  }
 `;
 export const CatalogList = styled.ul`
   display: flex;
   gap: 29px;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 50px;
 `;
 export const StyledImg = styled.img`
   width: 274px;
@@ -70,5 +79,22 @@ export const StyledButton = styled.button`
   transition: all 500ms;
   &:hover {
     background-color: #0b44cd;
+  }
+`;
+export const LoadMoreButton = styled.button`
+  text-align: center;
+  color: #3470ff;
+  border: none;
+  border-radius: 12px;
+  margin-top: 80px;
+  margin-bottom: 70px;
+  font-size: 16px;
+  background-color: transparent;
+  text-decoration: underline;
+  cursor: pointer;
+  outline: none;
+  transition: all 500ms;
+  &:hover {
+    color: #0b44cd;
   }
 `;

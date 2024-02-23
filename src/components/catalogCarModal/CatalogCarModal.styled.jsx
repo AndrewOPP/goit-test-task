@@ -48,6 +48,17 @@ export const StyledInfoListModal = styled.ul`
   flex-wrap: wrap;
   margin-top: 10px;
 `;
+export const RentalConditionsItemModal = styled.li`
+  padding: 7px 13px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+`;
+export const RentalConditionsModal = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+`;
 export const StyledInfoListItemModal = styled.li`
   color: #12141780;
   font-size: 14px;

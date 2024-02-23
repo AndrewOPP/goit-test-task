@@ -12,6 +12,8 @@ import {
   MainInfoWrapperModal,
   ModalContentWrapper,
   RentalButton,
+  RentalConditionsItemModal,
+  RentalConditionsModal,
   StyledImg,
   StyledInfoListItemModal,
   StyledInfoListModal,
@@ -66,10 +68,18 @@ export const CatalogCarModal = ({
     accessories,
     functionalities,
     rentalConditions,
+    mileage,
+    rentalPrice,
   } = car;
 
+  const formattedMileage = mileage => {
+    const mileageString = mileage.toString();
+    const mileageArray = mileageString.split('');
+    mileageArray.splice(1, 0, ',');
+    return mileageArray.join('');
+  };
+
   Modal.setAppElement('#root');
-  console.log(12321);
   return (
     <Modal
       isOpen={modalIsOpen}
@@ -112,13 +122,21 @@ export const CatalogCarModal = ({
             Accessories and functionalities:
           </StyledModelDescriptionModal>
           <StyledInfoListModal>
-            {accessories.map(item => {
-              return <StyledInfoListItemModal>{item}</StyledInfoListItemModal>;
+            {accessories.map((item, index) => {
+              return (
+                <StyledInfoListItemModal key={index}>
+                  {item}
+                </StyledInfoListItemModal>
+              );
             })}
           </StyledInfoListModal>
           <StyledInfoListModal>
-            {functionalities.map(item => {
-              return <StyledInfoListItemModal>{item}</StyledInfoListItemModal>;
+            {functionalities.map((item, index) => {
+              return (
+                <StyledInfoListItemModal key={index}>
+                  {item}
+                </StyledInfoListItemModal>
+              );
             })}
           </StyledInfoListModal>
         </AccessoriesWrapper>
@@ -126,11 +144,33 @@ export const CatalogCarModal = ({
           <StyledModelDescriptionModal>
             Rental Conditions:{' '}
           </StyledModelDescriptionModal>
-          <ul>
-            {rentalConditions.split('\n').map(item => {
-              return <li>{item}</li>;
+          <RentalConditionsModal>
+            {rentalConditions.split('\n').map((item, index) => {
+              if (index === 0) {
+                const lastSymbols = item.slice(-2);
+                return (
+                  <RentalConditionsItemModal key={index}>
+                    {item.slice(0, -2)}
+                    <span style={{ color: '#3470ff' }}>{lastSymbols}</span>
+                  </RentalConditionsItemModal>
+                );
+              }
+              return (
+                <RentalConditionsItemModal key={index}>
+                  {item}
+                </RentalConditionsItemModal>
+              );
             })}
-          </ul>
+            <RentalConditionsItemModal>
+              Mileage:{' '}
+              <span style={{ color: '#3470ff' }}>
+                {formattedMileage(mileage)}
+              </span>
+            </RentalConditionsItemModal>
+            <RentalConditionsItemModal>
+              Price: <span style={{ color: '#3470ff' }}>{rentalPrice}</span>
+            </RentalConditionsItemModal>
+          </RentalConditionsModal>
         </ConditionsWrapper>
         <RentalButton type="button">Rental Car</RentalButton>
       </ModalContentWrapper>
