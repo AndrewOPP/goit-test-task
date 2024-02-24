@@ -12,3 +12,13 @@ export const FavoritesWrapper = styled.div`
     margin-right: 268px;
   }
 `;
+export const FavoritesTitle = styled.h2`
+  font-size: 35px;
+  margin-top: 100px;
+  color: #375baf;
+`;
+
+export const FavoritesSpace = styled.p`
+  font-size: 23px;
+  margin-top: 150px;
+`;

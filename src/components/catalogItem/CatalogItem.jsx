@@ -1,4 +1,7 @@
-import { StyledImg } from 'components/catalogPageView/CatalogPageView.styled';
+import {
+  StyledHeartIconFilled,
+  StyledImg,
+} from 'components/catalogPageView/CatalogPageView.styled';
 import React, { useState } from 'react';
 import {
   StyledButton,
@@ -27,7 +30,6 @@ export const CatalogItem = ({ car, allCars }) => {
   };
 
   const [isInFavorite, setIsInFavorite] = useState(isCarInFavorite());
-  //   console.log(isCarInFavorite());
   const {
     img,
     make,
@@ -42,10 +44,12 @@ export const CatalogItem = ({ car, allCars }) => {
 
   const openModal = () => {
     setIsOpen(true);
+    document.body.style.overflow = 'hidden';
   };
 
   const closeModal = () => {
     setIsOpen(false);
+    document.body.style.overflow = '';
   };
 
   const getGeoOfTheCar = carAddress => {
@@ -87,10 +91,11 @@ export const CatalogItem = ({ car, allCars }) => {
     <li key={id} style={{ maxWidth: 274 }}>
       <div style={{ position: 'relative' }}>
         <StyledImg width={278} height={268} src={img} alt="car" />
-        <StyledHeartIcon
-          style={{ fill: isInFavorite ? 'red' : 'white' }}
-          onClick={() => addToFavorite(id)}
-        />
+        {isInFavorite ? (
+          <StyledHeartIconFilled onClick={() => addToFavorite(id)} />
+        ) : (
+          <StyledHeartIcon onClick={() => addToFavorite(id)} />
+        )}
       </div>
       <StyledModelBlock>
         <StyledModelText>

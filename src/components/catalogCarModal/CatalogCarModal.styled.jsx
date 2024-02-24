@@ -5,6 +5,7 @@ export const StyledImg = styled.img`
   width: 461px;
   height: 248px;
   border-radius: 14px;
+  object-fit: cover;
 `;
 
 export const ModalContentWrapper = styled.div`

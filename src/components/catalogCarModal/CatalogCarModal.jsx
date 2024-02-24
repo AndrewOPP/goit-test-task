@@ -1,9 +1,3 @@
-import {
-  StyledInfoList,
-  StyledInfoListItem,
-  StyledModelSpan,
-  StyledModelText,
-} from 'components/catalogPageView/CatalogPageView.styled';
 import React from 'react';
 import Modal from 'react-modal';
 import {
@@ -77,6 +71,10 @@ export const CatalogCarModal = ({
     const mileageArray = mileageString.split('');
     mileageArray.splice(1, 0, ',');
     return mileageArray.join('');
+  };
+
+  const handleCall = phoneNumber => {
+    window.location.href = `tel:${phoneNumber}`;
   };
 
   Modal.setAppElement('#root');
@@ -172,7 +170,9 @@ export const CatalogCarModal = ({
             </RentalConditionsItemModal>
           </RentalConditionsModal>
         </ConditionsWrapper>
-        <RentalButton type="button">Rental Car</RentalButton>
+        <RentalButton onClick={() => handleCall(+4733378901)}>
+          Rental Car
+        </RentalButton>
       </ModalContentWrapper>
     </Modal>
   );

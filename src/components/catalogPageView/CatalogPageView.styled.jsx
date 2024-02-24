@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { UilHeart } from '@iconscout/react-unicons';
-
+import FavoriteIcon from '@mui/icons-material/Favorite';
 export const CatalogWrapper = styled.div`
   margin-left: 168px;
   margin-right: 168px;
@@ -24,6 +24,7 @@ export const StyledImg = styled.img`
   width: 274px;
   height: 268px;
   border-radius: 14px;
+  object-fit: cover;
 `;
 export const StyledHeartIcon = styled(UilHeart)`
   position: absolute;
@@ -32,6 +33,15 @@ export const StyledHeartIcon = styled(UilHeart)`
   width: 26px;
   height: 26px;
   fill: white;
+  cursor: pointer;
+`;
+export const StyledHeartIconFilled = styled(FavoriteIcon)`
+  position: absolute;
+  top: 16px;
+  right: 15px;
+  width: 27px;
+  height: 27px;
+  color: #3470ff;
   cursor: pointer;
 `;
 
@@ -86,8 +96,6 @@ export const LoadMoreButton = styled.button`
   color: #3470ff;
   border: none;
   border-radius: 12px;
-  margin-top: 80px;
-  margin-bottom: 70px;
   font-size: 16px;
   background-color: transparent;
   text-decoration: underline;
@@ -97,4 +105,8 @@ export const LoadMoreButton = styled.button`
   &:hover {
     color: #0b44cd;
   }
+`;
+export const LoadMoreButtonWrapper = styled.div`
+  margin-bottom: 70px;
+  margin-top: 80px;
 `;
