@@ -8,6 +8,7 @@ import {
 } from './FavoritesPageView.styled';
 
 export const FavoritesPageView = () => {
+  // eslint-disable-next-line no-unused-vars
   const [favoritesArray, setFavoritesArray] = useState(
     JSON.parse(localStorage.getItem('favoriteArray')) || []
   );
