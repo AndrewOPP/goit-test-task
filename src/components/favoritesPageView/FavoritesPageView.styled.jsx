@@ -8,8 +8,8 @@ export const FavoritesWrapper = styled.div`
   align-items: center;
   flex-direction: column;
   @media (min-width: 1768px) {
-    margin-left: 268px;
-    margin-right: 268px;
+    margin-left: 208px;
+    margin-right: 208px;
   }
 `;
 export const FavoritesTitle = styled.h2`

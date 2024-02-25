@@ -6,6 +6,7 @@ export const FiltersForm = styled.form`
   align-items: end;
   justify-content: center;
   gap: 18px;
+  flex-wrap: wrap;
 `;
 export const FiltersWrapper = styled.div`
   margin-top: 50px;
@@ -21,6 +22,7 @@ export const StyledSelect = styled.select`
   border: none;
   outline: none;
 `;
+
 export const StyledSecondSelect = styled.select`
   width: 125px;
   color: #12141780;
@@ -34,7 +36,7 @@ export const StyledSecondSelect = styled.select`
 `;
 
 export const StyledInput = styled.input`
-  width: 160px;
+  width: 140px;
   color: #12141780;
   padding: 14px 18px;
   font-size: 18px;
@@ -52,7 +54,7 @@ export const StyledInput = styled.input`
 `;
 
 export const StyledInputSecond = styled.input`
-  width: 160px;
+  width: 140px;
   color: #12141780;
   padding: 14px 18px;
   font-size: 18px;

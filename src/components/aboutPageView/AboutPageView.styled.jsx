@@ -50,9 +50,13 @@ export const ListWrapper = styled.ul({
 });
 
 export const ListItem = styled.li({
+  display: 'flex',
+  justifyContent: 'center',
+  flexDirection: 'column',
+  alignItems: 'center',
   padding: 14,
   width: '300px',
-  height: '150px',
+  height: '200px',
   boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
   listStyle: 'none',
   borderRadius: '8px',

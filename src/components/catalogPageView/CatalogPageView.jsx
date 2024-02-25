@@ -9,12 +9,17 @@ import {
 import { CatalogItem } from 'components/catalogItem/CatalogItem';
 import { loader } from 'components/Loader/Loader';
 import { Filters } from 'components/filters/Filters';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectAllCars } from '../../redux/cars/carsSelectors';
+import { allCarsThunk } from '../../redux/cars/carsOperation';
+import { FavoritesSpace } from 'components/favoritesPageView/FavoritesPageView.styled';
 
 export const CatalogPageView = () => {
   const [allCars, setAllCars] = useState([]);
-  const [allCarsData, setAllCarsData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
+  const allCarsSelector = useSelector(selectAllCars);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setIsLoading(true);
@@ -23,11 +28,7 @@ export const CatalogPageView = () => {
         const response = await axios.get(
           `https://65d755f627d9a3bc1d7ac601.mockapi.io/allCars?limit=12&page=${page}`
         );
-
-        const responseOfAllData = await axios.get(
-          `https://65d755f627d9a3bc1d7ac601.mockapi.io/allCars`
-        );
-        setAllCarsData(responseOfAllData.data);
+        dispatch(allCarsThunk());
         setAllCars([...allCars, ...response.data]);
       } catch (error) {
         console.log(error);
@@ -44,28 +45,30 @@ export const CatalogPageView = () => {
   };
 
   const renderAllCars = () => {
+    if (!allCars.length && !isLoading)
+      return <FavoritesSpace>No cars with such filters</FavoritesSpace>;
+
     return allCars.map(car => {
       return <CatalogItem key={car.id} car={car} allCars={allCars} />;
     });
   };
-
   const filterByMark = make => {
     if (make === 'All') {
-      return setAllCars(allCarsData.slice(0, 12 * page));
+      return setAllCars(allCarsSelector.slice(0, 12 * page));
     }
-    const filteredCars = allCarsData.filter(
+    const filteredCars = allCarsSelector.filter(
       ({ make: currentMake }) => currentMake === make
     );
-    console.log(filteredCars);
+
     if (filteredCars) return setAllCars(filteredCars);
     return;
   };
   const filterByPrice = price => {
     if (price === 'All') {
-      return setAllCars(allCarsData.slice(0, 12 * page));
+      return setAllCars(allCarsSelector.slice(0, 12 * page));
     }
 
-    const filteredCars = allCarsData.filter(({ rentalPrice }) => {
+    const filteredCars = allCarsSelector.filter(({ rentalPrice }) => {
       const rightPrice = Number(
         rentalPrice
           .split('')
@@ -80,9 +83,9 @@ export const CatalogPageView = () => {
 
   const filterByMarkAndPrice = (mark, price) => {
     if (price === 'All' && mark === 'All') {
-      return setAllCars(allCarsData.slice(0, 12 * page));
+      return setAllCars(allCarsSelector.slice(0, 12 * page));
     }
-    const filteredCars = allCarsData.filter(
+    const filteredCars = allCarsSelector.filter(
       ({ make: currentMake, rentalPrice }) => {
         const rightPrice = Number(
           rentalPrice
@@ -106,7 +109,7 @@ export const CatalogPageView = () => {
         filterByMarkAndPrice={filterByMarkAndPrice}
         filterByMark={filterByMark}
         filterByPrice={filterByPrice}
-        allCarsData={allCarsData}
+        allCarsData={allCarsSelector}
       />
       {isLoading ? loader : null}
       <CatalogList>{renderAllCars()}</CatalogList>

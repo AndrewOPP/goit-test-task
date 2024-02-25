@@ -56,7 +56,7 @@ export const Filters = ({
         </div>
         <div>
           <LabelsText>Сar mileage / km</LabelsText>
-          <div>
+          <div style={{ width: '358px' }}>
             <StyledInput placeholder="From" type="text" />
             <StyledInputSecond placeholder="To" type="text" />
           </div>

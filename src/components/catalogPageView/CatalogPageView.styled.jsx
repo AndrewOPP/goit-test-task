@@ -78,6 +78,7 @@ export const StyledButton = styled.button`
   width: 100%;
   padding-top: 12px;
   padding-bottom: 12px;
+  font-size: 15px;
   background-color: #3470ff;
   text-align: center;
   color: #fff;
