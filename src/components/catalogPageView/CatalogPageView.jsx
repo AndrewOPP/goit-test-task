@@ -79,6 +79,9 @@ export const CatalogPageView = () => {
   };
 
   const filterByMarkAndPrice = (mark, price) => {
+    if (price === 'All' && mark === 'All') {
+      return setAllCars(allCarsData.slice(0, 12 * page));
+    }
     const filteredCars = allCarsData.filter(
       ({ make: currentMake, rentalPrice }) => {
         const rightPrice = Number(
@@ -88,6 +91,8 @@ export const CatalogPageView = () => {
             .join('')
         );
         const rightMake = currentMake.split(' ')[0];
+        if (mark === 'All') return rightPrice < price;
+        if (price === 'All') return mark === rightMake;
         return mark === rightMake && rightPrice < price;
       }
     );

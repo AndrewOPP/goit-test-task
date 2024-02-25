@@ -5,6 +5,7 @@ import {
   LabelsText,
   SearchButton,
   StyledInput,
+  StyledInputSecond,
 } from './Filters.styled';
 
 import { CustomSelect } from 'components/customSelect/CustomSelect';
@@ -17,12 +18,9 @@ export const Filters = ({
   const [currentMake, setCurrentMake] = useState('');
   const [currentPrice, setCurrentPrice] = useState('');
   const submitHandler = e => {
-    console.log(currentMake);
-    console.log(currentPrice);
     e.preventDefault();
     if (currentMake && currentPrice) {
       filterByMarkAndPrice(currentMake, currentPrice);
-      // filterByPrice(currentPrice);
       return;
     }
     if (currentMake) {
@@ -60,7 +58,7 @@ export const Filters = ({
           <LabelsText>Сar mileage / km</LabelsText>
           <div>
             <StyledInput placeholder="From" type="text" />
-            <StyledInput placeholder="To" type="text" />
+            <StyledInputSecond placeholder="To" type="text" />
           </div>
         </div>
         <SearchButton type="submit">Search</SearchButton>

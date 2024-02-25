@@ -38,8 +38,30 @@ export const StyledInput = styled.input`
   color: #12141780;
   padding: 14px 18px;
   font-size: 18px;
-  border-radius: 14px;
+  border-top-left-radius: 14px;
+  border-bottom-left-radius: 14px;
   background-color: #f7f7fb;
+  border: none;
+  border: 1px solid transparent;
+  outline: none;
+  border-right: 2px solid #8a8a8933;
+
+  &:placeholder-shown {
+    color: black;
+  }
+`;
+
+export const StyledInputSecond = styled.input`
+  width: 160px;
+  color: #12141780;
+  padding: 14px 18px;
+  font-size: 18px;
+  border-top-right-radius: 14px;
+  border-bottom-right-radius: 14px;
+  background-color: #f7f7fb;
+  &:placeholder-shown {
+    color: black;
+  }
   border: none;
   outline: none;
 `;

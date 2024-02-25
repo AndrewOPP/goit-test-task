@@ -37,7 +37,7 @@ export const CustomSelect = ({
       <StyledSelect
         onChange={selected => setCurrentMake(selected.value)}
         defaultValue={{ value: '', label: 'Choose mark' }}
-        options={[{ value: '', label: 'All' }, ...MAKES_SELECT]}
+        options={[{ value: 'All', label: 'All' }, ...MAKES_SELECT]}
         styles={customStyles}
         menuPortalTarget={document.body}
       />
@@ -47,7 +47,7 @@ export const CustomSelect = ({
       <StyledSelect
         onChange={selected => setCurrentPrice(selected.value)}
         defaultValue={{ value: '', label: 'To $' }}
-        options={[{ value: '', label: 'All' }, ...PRICE_SELECT]}
+        options={[{ value: 'All', label: 'All' }, ...PRICE_SELECT]}
         styles={customStyles}
         menuPortalTarget={document.body}
       />

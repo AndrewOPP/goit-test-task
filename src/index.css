@@ -36,3 +36,11 @@ select {
 .select:before {
   overflow: hidden;
 }
+
+p {
+  font-family: Manrope;
+}
+
+button {
+  font-family: Manrope;
+}
