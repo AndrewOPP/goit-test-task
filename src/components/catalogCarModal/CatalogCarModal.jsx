@@ -170,7 +170,7 @@ export const CatalogCarModal = ({
             </RentalConditionsItemModal>
           </RentalConditionsModal>
         </ConditionsWrapper>
-        <RentalButton onClick={() => handleCall(+4733378901)}>
+        <RentalButton onClick={() => handleCall('+380730000000')}>
           Rental Car
         </RentalButton>
       </ModalContentWrapper>
